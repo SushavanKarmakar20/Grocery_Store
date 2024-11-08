@@ -230,7 +230,7 @@ function generatePDF() {
     doc.setTextColor(255, 255, 255); // White color for table header
     doc.setFillColor(52, 152, 219); // Blue color for header background
     doc.rect(20, yPosition, 180, 10, 'F');
-    doc.text(`Total Amount: $${totalAmount.toFixed(2)}`, 80, yPosition + 10);
+    doc.text(`Total Amount: $${totalAmount.toFixed(2)}`, 80, yPosition + 7);
 
     // Save the PDF
     doc.save("order-summary.pdf");
