@@ -44,6 +44,20 @@ const products = [
     { id: 38, name: 'Amul Taza Milk (1L)', showedprice: 79, price: 69.5, category: 'Dairy', image: '../images/Dairy/AmulTaza.webp' },
     { id: 39, name: 'Amul Salted Butter (100g)', showedprice: 59, price: 54.5, category: 'Dairy', image: '../images/Dairy/Butter.avif' },
     
+    { id: 39, name: 'Fortune Everday Basmati Rice (5Kg)', showedprice: 849, price: 696.2, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/FortuneEverdayBasmatiRice.jpg' },
+    { id: 40, name: 'Nutrela Soya Chunks (1Kg)', showedprice: 209, price: 179.75, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/NutrelaSoyaChunks.webp' },
+    { id: 41, name: 'Asirbad Select Atta (1Kg)', showedprice: 79, price: 70.35, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/Selectatta.webp' },
+    { id: 42, name: 'Tata Sampann Kabuli Chana (500g)', showedprice: 159, price: 143.1, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/TataSampannKabuliChana.webp' },
+    { id: 43, name: 'Fortune Besan (500g)', showedprice: 79, price: 70, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/FortuneBesan.jpg' },
+    { id: 44, name: 'Weikfield Cornflour (500g)', showedprice: 89, price: 80.1, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/WeikfieldCornflour.jpg' },
+    { id: 45, name: 'Fortune Chakki Fresh Atta (5Kg)', showedprice: 269, price: 235, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/FortuneChakki.webp' },
+    { id: 46, name: 'Tata Sampann Masoor Dal (1Kg)', showedprice: 169, price: 143.65, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/TataSampannMasoorDal.jpg' },
+    { id: 47, name: 'India Gate Classic Basmati Rice (5Kg)', showedprice: 1199, price: 1077.3, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/IndiaGateClassicBasmatiRice.webp' },
+    { id: 48, name: 'Tata Sampann Moong Dal (1Kg)', showedprice: 219, price: 186.15, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/TataSampannMoong.jpg' },
+    { id: 49, name: 'Ganesh Whole Wheat Chakki Atta (5Kg)', showedprice: 269, price: 228.5, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/GaneshAtta.webp' },
+    { id: 50, name: 'Fortune Moong Dal (500g)', showedprice: 109, price: 98.1, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/FortuneMoongDal.jpg' },
+
+
 ];
 
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
