@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/cropped_image.png" type="image/icon type">
+    <title>Grocery Store Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="logo">
+                GROCERY_STORE
+            </div>
+            <button class="cart-button" onclick="location.href='cart.htm'">🛒 Go to Cart</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <center>
+                <img src="../images/grocery-store-logo-Photoroom.png" style="width:175px;cursor: pointer;">
+                <h3>Categories</h3>
+            </center>
+   
+            <ul>
+                <li onclick="filterProducts('Fruits')">Fruits</li>
+                <li onclick="filterProducts('Vegetables')">Vegetables</li>
+                <li onclick="filterProducts('Dairy')">Dairy</li>
+                <!-- <li onclick="filterProducts('Atta&Rice&Oil&Dal')">Atta, Rice, Oil & Dals</li>
+                <li onclick="filterProducts('Masala&DryFruits')">Masala & Dry Fruits</li>
+                <li onclick="filterProducts('Breakfast&Sauces')">Breakfast & Sauces</li>
+                <li onclick="filterProducts('Packaged&Frozen')">Packaged & Frozen Foods</li>
+                <li onclick="filterProducts('Tea&Coffee')">Tea, Coffee & More</li>
+                <li onclick="filterProducts('IceCream&More')">Ice Cream & More</li>
+                <li onclick="filterProducts('Sweets&More')">Sweets & Chocolates</li>
+                <li onclick="filterProducts('Coockies&Munchies')">Coockies & Munchies</li> -->
+            </ul>
+        </aside>
+        <main class="product-list" id="productList"></main>
+    </div>
+
+    <script src="../scripts/script.js"></script>
+</body>
+</html>

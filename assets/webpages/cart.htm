@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/cropped_image.png" type="image/icon type">
+    <title>Grocery Store Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <div class="logo">
+                GROCERY_STORE
+            </div>
+            <button class="cart-button" onclick="location.href='dashboard.htm'">🛍️ Dashboard</button>
+        </div>
+    </header>
+    <div class="cart-container">
+        <div id="cartMessage" class="empty-cart">
+            Cart is Empty. Add items to explore more.
+        </div>
+        <div class="cart-content" id="cartContent">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 275px;">Name</th>
+                        <th style="width: 75px;">Price</th>
+                        <th style="width: 100px;">Discounted Price</th>
+                        <th style="width: 100px;">Quantity</th>
+                        <th style="width: 80px;">To Pay</th>
+                        <th style="width: 75px;">Total Save</th>
+                        <th style="width: 50px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cartItems">
+                    <!-- Cart items will be dynamically populated here -->
+                </tbody>
+            </table>
+        </div>
+        <center>
+            <div id="totalMessage" style="text-align:center; justify-content: center; padding: 10px; background-color: #4CAF50; color: white; font-size: 22px; font-weight: bold;margin: 15px; width: 22%;border-radius: 25px; cursor: pointer;"></div>
+        </center>
+        <div class="order-form">
+            <center>
+                <h3>Customer Details</h3>
+                <input type="text" id="customerName" placeholder="Name" required>
+                <input type="email" id="customerEmail" placeholder="Email Address" required>
+                <input type="text" id="customerPhone" placeholder="Phone No" required>
+                <input type="text" id="customerAddress" placeholder="Delivery Address" required>
+                <button id="placeOrderBtn" type="button">Check Out</button>
+                <button onclick="location.href='dashboard.htm'">Go Back</button>
+            </center>
+        </div>
+    </div>
+
+    <!-- Payment Options Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+            <h3 style="color: white; font-size:20px;">Select Payment Method</h3>
+            <select id="paymentMethod" required>
+                <option value="COD">Cash On Delivery</option>
+                <option value="UPI">UPI</option>
+                <option value="Card">Credit/Debit Card</option>
+            </select>
+            <br><br>
+            <center>
+                <button onclick="checkoutOrder()">Place Order</button>
+                <button onclick="location.href='cart.htm'">Go Back</button>
+            </center>
+            
+        </div>
+    </div>
+
+    <script src="../scripts/cart.js"></script>
+</body>
+</html>
