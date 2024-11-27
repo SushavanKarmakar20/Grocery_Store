@@ -115,6 +115,8 @@ async function checkoutOrder() {
     // Close the modal
     closePaymentModal();
 
+    window.open("./success.htm");
+
     // Generate PDF after confirming payment
     await generatePDF(paymentMethod);
 }
@@ -129,52 +131,114 @@ async function generatePDF(paymentMethod) {
     const customerPhone = document.getElementById('customerPhone').value;
     const customerAddress = document.getElementById('customerAddress').value;
 
-    // Header
+    // Header - Bold and Underlined "Grocery Store"
     pdf.setFontSize(24);
     pdf.setTextColor(255, 255, 255);
     pdf.setFillColor(76, 175, 80);
     pdf.rect(0, 0, pdf.internal.pageSize.getWidth(), 30, 'F');
-    pdf.setTextColor(255, 255, 255);
-    pdf.text("Grocery Store", pdf.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
+    
+    // Set font to bold for "Grocery Store"
+    pdf.setFont("helvetica", "bold");
+    const textWidth = pdf.getTextWidth("Grocery Store");
+    const centerX = pdf.internal.pageSize.getWidth() / 2 - textWidth / 2;
 
-    // Customer details
+    // Print the text "Grocery Store"
+    pdf.text("Grocery Store", centerX, 20);
+    
+    // Underline the text by drawing a line beneath it
+    pdf.setDrawColor(255, 255, 255); // White color for the line
+    pdf.setLineWidth(1);
+    pdf.line(centerX, 22, centerX + textWidth, 22); // Draw a line beneath the text
+
+    // Customer Details - Light Gray Background for a clean look
+    //pdf.setFillColor(242, 242, 242); // Light gray
+    pdf.rect(0, 30, pdf.internal.pageSize.getWidth(), 50, 'F');
     pdf.setFontSize(12);
     pdf.setTextColor(0, 0, 0);
-    pdf.text(`Name: ${customerName}`, 10, 40);
-    pdf.text(`Email: ${customerEmail}`, 10, 50);
-    pdf.text(`Phone: ${customerPhone}`, 10, 60);
-    pdf.text(`Delivery Address: ${customerAddress}`, 10, 70);
+    pdf.text(`Name: ${customerName}`, 10, 45);
+    pdf.text(`Email: ${customerEmail}`, 10, 55);
+    pdf.text(`Phone: ${customerPhone}`, 10, 65);
+    pdf.text(`Delivery Address: ${customerAddress}`, 10, 75);
 
-    // Payment Method
-    pdf.text(`Payment Method: ${paymentMethod}`, 10, 80);
+    // Payment Method with better visual alignment
+    pdf.text(`Payment Method: ${paymentMethod}`, 10, 85);
 
-    // Product details header
-    pdf.text("Products Ordered:", 10, 90);
-    pdf.setFontSize(10);
-    pdf.text("Name", 10, 100);
-    pdf.text("Price", 70, 100);
-    pdf.text("Quantity", 110, 100);
-    pdf.text("Total Price", 150, 100);
+    // Product details section with table headers
+    pdf.setFontSize(14);
+    pdf.setTextColor(0, 0, 0);
+    pdf.text("Products Ordered:", 10, 95);
 
-    let y = 110; // Y position for products
+    // Table Column Headers - Green background with white text
+    pdf.setFontSize(12);
+    pdf.setFillColor(76, 175, 80);
+    pdf.rect(10, 100, 60, 10, 'F'); // Name Column
+    pdf.rect(70, 100, 40, 10, 'F'); // Price Column
+    pdf.rect(110, 100, 30, 10, 'F'); // Quantity Column
+    pdf.rect(140, 100, 50, 10, 'F'); // Total Price Column
+
+    pdf.setTextColor(255, 255, 255); // White text for headers
+    pdf.text("Name", 40, 107, { align: 'center' });
+    pdf.text("Price", 90, 107, { align: 'center' });
+    pdf.text("Quantity", 125, 107, { align: 'center' });
+    pdf.text("Total Price", 165, 107, { align: 'center' });
+
+    let y = 110; // Starting Y position for product rows
     let totalAmount = 0;
 
-    cart.forEach(item => {
+    // Add each product in table rows with alternating row colors
+    cart.forEach((item, index) => {
         const totalPrice = item.price * item.quantity;
         totalAmount += totalPrice;
 
-        pdf.text(item.name, 10, y);
-        pdf.text(`₹${item.price.toFixed(2)}`, 70, y);
-        pdf.text(`${item.quantity}`, 110, y);
-        pdf.text(`₹${totalPrice.toFixed(2)}`, 150, y);
-        y += 10; // Move down for next item
+        // Alternate row colors for readability
+        const rowColor = (index % 2 === 0) ? [240, 240, 240] : [255, 255, 255]; // Light gray and white
+        pdf.setFillColor(...rowColor);
+        pdf.rect(10, y, 60, 10, 'F'); // Name Column
+        pdf.rect(70, y, 40, 10, 'F'); // Price Column
+        pdf.rect(110, y, 30, 10, 'F'); // Quantity Column
+        pdf.rect(140, y, 50, 10, 'F'); // Total Price Column
+
+        // Add text to the rows
+        pdf.setTextColor(0, 0, 0); // Black text
+        pdf.text(item.name, 40, y + 7, { align: 'center' });
+        pdf.text(`Rs. ${item.price.toFixed(2)} /-`, 90, y + 7, { align: 'center' });
+        pdf.text(`${item.quantity}`, 130, y + 7, { align: 'center' });
+        pdf.text(`Rs. ${totalPrice.toFixed(2)} /-`, 165, y + 7, { align: 'center' });
+
+        y += 12; // Move down for the next row
     });
 
-    // Total Amount
-    pdf.setFontSize(12);
-    pdf.text(`Total Amount: ₹${totalAmount.toFixed(2)}`, 10, y);
-    y += 10;
+    // Add lines between each table row for clarity
+    pdf.setDrawColor(0, 0, 0); // Black border
+    pdf.line(10, 100, 10, y); // Left border
+    pdf.line(70, 100, 70, y); // Price border
+    pdf.line(110, 100, 110, y); // Quantity border
+    pdf.line(140, 100, 140, y); // Total price border
+    pdf.line(190, 100, 190, y); // Right border
+
+    // Draw horizontal lines under the table headers and at the bottom
+    pdf.line(10, 100, 190, 100); // Top border (header border)
+    pdf.line(10, y, 190, y); // Bottom border
+
+    // **Green Background, Bold, White Text for "Total Amount"**
+    const totalAmountHeight = 12; // Height of the total amount box
+    const totalYPosition = y + 10; // Y position for the Total Amount
+
+    // Set the background color to green
+    pdf.setFillColor(76, 175, 80);
+    pdf.rect(10, totalYPosition, pdf.internal.pageSize.getWidth() - 25, totalAmountHeight, 'F'); // Background rectangle
+    
+    // Set the text color to white, and make it bold
+    pdf.setFont("helvetica", "bold");
+    pdf.setTextColor(255, 255, 255);
+    pdf.text(`Total Amount: Rs. ${totalAmount.toFixed(2)} /-`, pdf.internal.pageSize.getWidth() / 2, totalYPosition + 8, { align: 'center' });
+
+    // Update the Y position for subsequent content
+    y = totalYPosition + totalAmountHeight + 10;
+
+    // Payment Confirmation
     pdf.setFontSize(14);
+    pdf.setTextColor(0, 0, 0);
     pdf.text("Payment is Completed", pdf.internal.pageSize.getWidth() / 2, y, { align: 'center' });
     y += 10;
     pdf.text("Thank you for your order!", pdf.internal.pageSize.getWidth() / 2, y, { align: 'center' });
@@ -182,5 +246,9 @@ async function generatePDF(paymentMethod) {
     // Save the PDF
     pdf.save("order-details.pdf");
 }
+
+
+
+
 
 updateCart();
