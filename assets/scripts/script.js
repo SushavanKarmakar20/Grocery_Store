@@ -57,6 +57,32 @@ const products = [
     { id: 49, name: 'Ganesh Whole Wheat Chakki Atta (5Kg)', showedprice: 269, price: 228.5, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/GaneshAtta.webp' },
     { id: 50, name: 'Fortune Moong Dal (500g)', showedprice: 109, price: 98.1, category: 'Atta&Rice&Dal', image: '../images/Atta&Rice&Dal/FortuneMoongDal.jpg' },
 
+    { id: 51, name: 'Everest Shahi Biryani Masala (50g)', showedprice: 89, price: 78.5, category: 'Masala&Oil', image: '../images/Masala&Oil/everest-shahi-biryani-masala.webp' },
+    { id: 52, name: 'Tata Salt (1Kg)', showedprice: 29, price: 27, category: 'Masala&Oil', image: '../images/Masala&Oil/tata-salt.webp' },
+    { id: 53, name: 'Emami Sunflower Oil (1L)', showedprice: 189, price: 160.65, category: 'Masala&Oil', image: '../images/Masala&Oil/emami-healthy-tasty-refined-sunflower-oil.webp' },
+    { id: 54, name: 'Fortune Sugar (1Kg)', showedprice: 69, price: 62.1, category: 'Masala&Oil', image: '../images/Masala&Oil/sugar.webp' },
+    { id: 55, name: 'Fortune Kachi Ghani Mustard Oil (1L)', showedprice: 209, price: 171.5, category: 'Masala&Oil', image: '../images/Masala&Oil/kacchighani.jpg' },
+    { id: 56, name: 'Everest Chhole Masala (100g)', showedprice: 89, price: 81.9, category: 'Masala&Oil', image: '../images/Masala&Oil/everest-chhole-masala.webp' },
+    { id: 57, name: 'Emami Dhaniya Powder (100g)', showedprice: 89, price: 76.5, category: 'Masala&Oil', image: '../images/Masala&Oil/Dhaniya.jpg' },
+    { id: 58, name: 'Sumrise Shahi Garam Masala Powder (25g)', showedprice: 69, price: 63.5, category: 'Masala&Oil', image: '../images/Masala&Oil/garam_masala.jpg' },
+    { id: 59, name: 'Everest Black Pepper Powder (100g)', showedprice: 169, price: 148.75, category: 'Masala&Oil', image: '../images/Masala&Oil/everest-powder-black-pepper.webp' },
+    { id: 60, name: 'Fortune Soyabean Oil (1L)', showedprice: 179, price: 146.75, category: 'Masala&Oil', image: '../images/Masala&Oil/fortune-soya-bean-oil.webp' },
+    { id: 61, name: 'Everest Kashmiri Lal Chili Powder (100g)', showedprice: 119, price: 107.25, category: 'Masala&Oil', image: '../images/Masala&Oil/everest-powder-kashmirilal-ground-chilly.webp' },
+    { id: 62, name: 'Sumrise Cumin Powder (100g)', showedprice: 89, price: 80.1, category: 'Masala&Oil', image: '../images/Masala&Oil/sunrise-powder-cumin.webp' },
+    { id: 63, name: 'Catch Turmeric Powder (100g)', showedprice: 49, price: 44.25, category: 'Masala&Oil', image: '../images/Masala&Oil/Turmeric.jpg' },
+    { id: 64, name: 'Catch Jeera Powder (100g)', showedprice: 79, price: 107.25, category: 'Masala&Oil', image: '../images/Masala&Oil/catch-jeera-powder.webp' },
+    
+    { id: 65, name: 'Dabur Pure Honey (1Kg)', showedprice: 499, price: 459, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/dabur-100-pure-honey.webp' },
+    { id: 66, name: 'Kelloggs Multigrain Chocos (250g)', showedprice: 149, price: 138.5, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/kelloggs-chocos.webp' },
+    { id: 67, name: 'Kissan Fresh Tomato Ketchup (1Kg)', showedprice: 149, price: 134.1, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/kissan-fresh-tomato-ketchup.jpg' },
+    { id: 68, name: 'Knorr Green Chili Sauce (200g)', showedprice: 59, price: 54.25, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/knorr-green-chilli-sauce.webp' },
+    { id: 69, name: 'Hellmanns Veg Mayonnaise (250g)', showedprice: 89, price: 81.9, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/Mayonnaise.jpg' },
+    { id: 70, name: 'Kelloggs Corn Flakes (250g)', showedprice: 99, price: 91.1, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/kellogg-s-corn-flakes.webp' },
+    
+    
+    /* { id: 71, name: 'Everest Kashmiri Lal Chili Powder (100g)', showedprice: 119, price: 107.25, category: 'Breakfast&Sauces', image: '../images/Breakfast&Sauces/xxx.jpg' }, */
+    
+
 
 ];
 
